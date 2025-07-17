@@ -1,14 +1,14 @@
-# Step 1: Use Java base image
+# Use an OpenJDK image as a base
 FROM openjdk:17-jdk-slim
 
-# Step 2: Set working directory inside container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Step 3: Copy your built jar file
-COPY target/*.jar app.jar
+# Copy the JAR file from your local machine to the container
+COPY target/my-springboot-app.jar app.jar
 
-# Step 4: Expose the port
+# Expose the port your Spring Boot application will run on
 EXPOSE 8080
 
-# Step 5: Run the app
+# Command to run the Spring Boot app
 ENTRYPOINT ["java", "-jar", "app.jar"]
